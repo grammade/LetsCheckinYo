@@ -1,4 +1,6 @@
-$action = New-ScheduledTaskAction -Execute 'LetsCheckinYo.exe' -Argument "C:\Program Files (x86)\LetsCheckinYo\LetsCheckinYo.exe"
-$trigger = New-ScheduledTaskTrigger -Daily -At 7am
+$action = New-ScheduledTaskAction -Execute 'LetsCheckinYo.exe' -WorkingDirectory "C:\Program Files (x86)\LetsCheckinYo\"
+$trigger = New-ScheduledTaskTrigger -Daily -At 07:25
+$trigger2 = New-ScheduledTaskTrigger -Daily -At 16:35
 
 Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "CheckIn" -Description "Daily Checkin"
+Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "CheckOut" -Description "Daily Checkout"
