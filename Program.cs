@@ -1,10 +1,14 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V107.Debugger;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
 
 var cred = File.ReadAllLines("cred.txt").ToList();
+
+System.Console.WriteLine("Sit tight, let me do all the work....");
+
 
 new DriverManager().SetUpDriver(new ChromeConfig());
 var driver = new ChromeDriver();
@@ -34,3 +38,4 @@ submitButton2.Click();
 
 Thread.Sleep(3000);
 driver.Quit();
+return;
