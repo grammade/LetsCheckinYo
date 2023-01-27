@@ -31,7 +31,7 @@ var mood = driver.FindElement(By.CssSelector("[src*='https://heart.globalservice
 var desc = driver.FindElement(By.Id("note"));
 var submitButton2 = driver.FindElement(By.CssSelector("[type*='submit']"));
 
-desc.SendKeys($"{submitButton2.Text} at {DateTime.Now.ToString()}");
+desc.SendKeys($"{submitButton2.Text} at {Round(DateTime.Now, TimeSpan.FromMinutes(1)).ToString("H:mm")}");
 mood.Click();
 
 submitButton2.Click();
@@ -39,3 +39,9 @@ submitButton2.Click();
 Thread.Sleep(3000);
 driver.Quit();
 return;
+
+static DateTime Round(DateTime date, TimeSpan interval) {
+    return new DateTime(
+        (long)Math.Round(date.Ticks / (double)interval.Ticks) * interval.Ticks
+    );
+}
