@@ -4,6 +4,8 @@ Tired of constantly forgetting to check in and out at the MY HEART? Let my new a
 ##How to Use it?
 1. download the latest release in here https://github.com/dzkfzn/LetsCheckinYo/releases. 
 2. Extract the zip and move it to your D:
-3. Run LetsCheckinYo.exe
-4. For you that want to register as scheduler task, run script RegisterAsScheduler.exe (Run at 7.25 and 16.35)
-5. Enjoy!
+3. Before you can run, edit the cred.txt to your account. Line 1 is your username, line 2 is your password.
+4. Run LetsCheckinYo.exe
+5. For you that want to register as scheduler task, run script RegisterAsScheduler.exe (Run at 7.25 and 16.35)
+6. Haven't 'LULUS VA' yet, ignore if a virus warning pop. 
+7. Enjoy!
