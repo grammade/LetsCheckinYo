@@ -13,11 +13,14 @@ System.Console.WriteLine("Sit tight, let me do all the work....");
 
 new DriverManager().SetUpDriver(new ChromeConfig());
 var driver = new ChromeDriver();
+var utCoord = (-6.18432,106.931903);
 var coord = new Dictionary<string, object>{
-    {"latitude", -6.18432},
-    {"longitude", 106.931903},
+    {"latitude", utCoord.Item1},
+    {"longitude", utCoord.Item2},
     {"accuracy", 20}
 };
+var a = driver.ExecuteCdpCommand("Emulation.setGeolocationOverride", coord);
+
 driver.Navigate().GoToUrl("https://heart.globalservice.co.id/");
 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(500);
 
@@ -29,7 +32,6 @@ username.SendKeys(cred[0]);
 password.SendKeys(cred[1]);
 loginSubmitBtn.Click();
 
-var a = driver.ExecuteCdpCommand("Emulation.setGeolocationOverride", coord);
 driver.Navigate().GoToUrl("https://heart.globalservice.co.id/staff/absensi");
 
 var mood = driver.FindElement(By.CssSelector("[src*='https://heart.globalservice.co.id/assets/img/emoji/3.png']"));
@@ -43,6 +45,7 @@ Thread.Sleep(7000);
 submitBtn.Click();
 
 Thread.Sleep(3000);
+driver.Quit();
 return;
 
 static DateTime Round(DateTime date, TimeSpan interval) {
